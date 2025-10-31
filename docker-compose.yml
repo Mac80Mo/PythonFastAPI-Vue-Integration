@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  backend:
+    build: ./Backend
+    volumes:
+      - ./DB:/app/DB
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_PATH=/app/DB/projekt1.sqbpro
+  frontend:
+    build: ./Frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
