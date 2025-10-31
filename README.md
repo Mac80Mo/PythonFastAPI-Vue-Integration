@@ -4,41 +4,6 @@
 
 Fullstack-Grundgerüst mit FastAPI (Backend), Vue.js (Frontend) und Docker. Datenbankanbindung vorbereitet, saubere Projektstruktur nach MVC-Prinzip.
 
-## Projektstruktur
-
-```
-PythonFastAPI-Vue-Integration/
-│
-├── Backend/                # FastAPI Backend (MVC-Struktur)
-│   ├── app/
-│   │   ├── controllers/
-│   │   ├── models/
-│   │   ├── views/
-│   │   └── __init__.py
-│   ├── Dockerfile
-│   ├── main.py
-│   └── requirements.txt
-│
-├── Frontend/               # Vue.js Frontend
-│   ├── Dockerfile
-│   ├── package.json
-│   ├── package-lock.json
-│   └── src/
-│       ├── App.vue
-│       ├── main.js
-│       ├── components/
-│       ├── router/
-│       ├── store/
-│       └── views/
-│
-├── DB/                     # Datenbankordner (z.B. SQLite, nicht versioniert)
-│   └── projekt1.sqbpro
-│
-├── docker-compose.yml      # Orchestrierung der Container
-│
-└── README.md               # Projektbeschreibung
-```
-
 ## Projekt von GitHub herunterladen und starten
 
 1. **Repository klonen**
