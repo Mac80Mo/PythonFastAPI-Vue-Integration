@@ -1,3 +1,40 @@
+---
+
+## Projekt von GitHub herunterladen und starten
+
+1. **Repository klonen**
+   ```
+   git clone https://github.com/Mac80Mo/PythonFastAPI-Vue-Integration.git
+   cd PythonFastAPI-Vue-Integration
+   ```
+
+2. **Voraussetzungen installieren**
+   - **Docker Desktop** (für Container)
+   - **Python** (falls du Backend lokal ohne Docker starten willst)
+   - **Node.js & npm** (falls du Frontend lokal ohne Docker starten willst)
+   - **Python-Abhängigkeiten:**
+     ```
+     pip install -r Backend/requirements.txt
+     ```
+   - **Node-Abhängigkeiten:**
+     ```
+     cd Frontend
+     npm install
+     ```
+
+3. **Projekt mit Docker starten**
+   ```
+   docker-compose build --no-cache
+   docker-compose up
+   ```
+
+4. **Backend und Frontend im Browser öffnen**
+   - Backend: http://localhost:8000
+   - Frontend: http://localhost:8080
+
+**Hinweis:**
+- Alle benötigten Pakete stehen in `Backend/requirements.txt` und `Frontend/package.json`.
+- Für Hot-Reload oder lokale Entwicklung können Backend und Frontend auch ohne Docker gestartet werden.
 # PythonFastAPI-Vue-Integration
 
 ## Projektübersicht
