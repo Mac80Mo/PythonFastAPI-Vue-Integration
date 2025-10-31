@@ -2,11 +2,27 @@
 
 ## Projektübersicht
 
-Dieses Projekt ist ein Fullstack-Grundgerüst nach dem MVC-Prinzip mit einem Python-Backend (FastAPI), einem Vue-Frontend und einer eingebundenen Datenbank. Die Containerisierung erfolgt über Docker und docker-compose.
-
 ---
 
-## Struktur
+## Projekt starten (Docker, Backend & Frontend)
+
+1. **Docker Desktop starten**
+2. Im Hauptordner des Projekts folgenden Befehl ausführen:
+   ```
+   docker-compose build --no-cache
+   docker-compose up
+   ```
+3. **Backend (FastAPI)** ist erreichbar unter:
+   - http://localhost:8000
+   - Test-Endpunkt: http://localhost:8000/dbtest
+   - API-Dokumentation: http://localhost:8000/docs
+4. **Frontend (Vue)** ist erreichbar unter:
+   - http://localhost:8080
+
+**Hinweis:**
+
+- Änderungen am Code werden erst nach einem Neustart der Container übernommen (außer bei Hot-Reload-Konfiguration).
+- Die Datenbankdateien und der Ordner `planung` werden nicht mitversioniert.
 
 ```
 PythonFastAPI-Vue-Integration/
@@ -34,7 +50,7 @@ PythonFastAPI-Vue-Integration/
 │       └── views/
 │
 ├── DB/                     # Datenbankordner (z.B. SQLite)
-│   └── projekt1.sqbpro (wird nicht versioniert)
+│
 │
 ├── docker-compose.yml      # Orchestrierung der Container
 │
