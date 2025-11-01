@@ -3,6 +3,7 @@ services:
   backend:
     build: ./Backend
     volumes:
+      - ./Backend:/app
       - ./DB:/app/DB
     ports:
       - "8000:8000"
@@ -10,7 +11,9 @@ services:
       - DB_PATH=/app/DB/projekt1.sqbpro
   frontend:
     build: ./Frontend
+    volumes:
+      - ./Frontend:/app
     ports:
-      - "8080:80"
+      - "8080:8080"
     depends_on:
       - backend

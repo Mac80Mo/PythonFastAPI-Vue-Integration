@@ -119,5 +119,19 @@ docker-compose up
 - Richte die Datenbankanbindung ein
 - Optional: Hot-Reload für Entwicklung
 
+## Hot-Reload für Entwicklung
 
+- **Backend:** Uvicorn wird im Docker-Dev-Modus mit `--reload` gestartet. Änderungen am Backend-Code werden automatisch übernommen, wenn du die Container mit Docker Compose startest.
+- **Frontend:** Vue-Dev-Server läuft im Container mit Hot-Reload. Änderungen am Frontend-Code werden direkt im Browser sichtbar.
+- Die Dockerfiles und `docker-compose.yml` sind für Hot-Reload vorbereitet.
+
+## Favicon
+
+- Um die Favicon-Fehlermeldung zu vermeiden, lege eine (auch leere) Datei `Frontend/public/favicon.ico` an. Ein individuelles Favicon kann als `.ico` oder `.svg` abgelegt werden.
+
+## Input-Validierung (Pydantic)
+
+- Im Backend werden Eingaben mit Pydantic validiert. Beispiel: Der Endpunkt `/users` prüft die Felder `username`, `email` und `password` nach definierten Regeln.
+- Die Validierungslogik ist zentral in `Backend/app/models/schemas.py` hinterlegt und kann für weitere Endpunkte genutzt werden.
+- Fehlerhafte Eingaben werden automatisch mit einer verständlichen Fehlermeldung beantwortet.
 ```
