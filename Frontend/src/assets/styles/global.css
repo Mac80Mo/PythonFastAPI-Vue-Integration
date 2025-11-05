@@ -1,0 +1,33 @@
+body {
+  background: var(--color-bg);
+  color: var(--color-text-tertiary);
+  transition: background 0.3s, color 0.3s;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: var(--color-text-primary);
+  font-weight: bold;
+}
+
+h2, h3 {
+  color: var(--color-text-secondary);
+}
+
+.border {
+  border: 1px solid var(--color-text-secondary);
+}
+
+button {
+  color: var(--color-text-primary);
+  background: var(--color-bg);
+  border: 1px solid var(--color-text-secondary);
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background: var(--color-text-secondary);
+  color: var(--color-bg);
+}

@@ -2,136 +2,229 @@
 
 ## Projektübersicht
 
-Fullstack-Grundgerüst mit FastAPI (Backend), Vue.js (Frontend) und Docker. Datenbankanbindung vorbereitet, saubere Projektstruktur nach MVC-Prinzip.
+Modernes Fullstack-Grundgerüst mit **FastAPI** (Backend), **Vue.js 3** (Frontend) und **Docker**. Production-ready für die Entwicklung mit Hot-Reload, CORS-Konfiguration, API-Integration und Theme-Switching.
 
-## Projekt von GitHub herunterladen und starten
+---
 
-1. **Repository klonen**
-   ```
-   git clone https://github.com/Mac80Mo/PythonFastAPI-Vue-Integration.git
-   cd PythonFastAPI-Vue-Integration
-   ```
-2. **Voraussetzungen installieren**
-   - Docker Desktop
-   - Python (optional, für lokalen Backend-Start)
-   - Node.js & npm (optional, für lokalen Frontend-Start)
-3. **Abhängigkeiten installieren**
-   - Backend: `pip install -r Backend/requirements.txt`
-   - Frontend: `cd Frontend && npm install`
-4. **Projekt mit Docker starten**
-   ```
-   docker-compose build --no-cache
-   docker-compose up
-   ```
-5. **Backend und Frontend im Browser öffnen**
-   - Backend: http://localhost:8000 (Test-Endpunkt: `/dbtest`, API-Doku: `/docs`)
-   - Frontend: http://localhost:8080
+## Features
 
-**Hinweise:**
+✅ **Backend (FastAPI)**
 
-- Änderungen am Code werden erst nach Neustart der Container übernommen (außer bei Hot-Reload).
-- Datenbankdateien und der Ordner `planung` werden nicht versioniert.
-- Alle benötigten Pakete stehen in `Backend/requirements.txt` und `Frontend/package.json`.
+- RESTful API mit automatischer OpenAPI-Dokumentation
+- SQLAlchemy Datenbankanbindung vorbereitet
+- Pydantic Input-Validierung
+- CORS-Middleware konfiguriert
+- MVC-Projektstruktur
+
+✅ **Frontend (Vue.js 3)**
+
+- Vue Router für Navigation
+- Axios API-Integration
+- Theme-Switching (Light/Dark Mode) mit LocalStorage
+- CSS-Variablen für zentrales Design-Management
+- Hot-Reload aktiviert
+
+✅ **Docker & DevOps**
+
+- Optimierte Dockerfiles für schnelle Builds
+- Volume-Mounts für Live-Code-Updates
+- Automatisches Hot-Reload für beide Services
+
+---
+
+## Schnellstart
+
+### 1. Repository klonen
+
+```bash
+git clone https://github.com/Mac80Mo/PythonFastAPI-Vue-Integration.git
+cd PythonFastAPI-Vue-Integration
+```
+
+### 2. Frontend-Abhängigkeiten installieren
+
+```bash
+cd Frontend
+npm install
+cd ..
+```
+
+### 3. Docker-Container starten
+
+```bash
+docker-compose up --build
+```
+
+### 4. Im Browser öffnen
+
+- **Frontend**: http://localhost:8080
+- **Backend API**: http://localhost:8000
+- **API-Dokumentation**: http://localhost:8000/docs
+
+---
+
+## Projektstruktur
 
 ```
 PythonFastAPI-Vue-Integration/
 │
-├── Backend/                # FastAPI Backend (MVC-Struktur)
+├── Backend/                    # FastAPI Backend
 │   ├── app/
-│   │   ├── controllers/
-│   │   ├── models/
-│   │   ├── views/
-│   │   └── __init__.py
-│   ├── Dockerfile
-│   ├── main.py
-│   └── requirements.txt
+│   │   ├── controllers/       # Business-Logik (erweiterbar)
+│   │   ├── models/            # Datenbank-Models & Schemas
+│   │   └── views/             # API-Endpunkte
+│   ├── Dockerfile             # Optimiert für Hot-Reload
+│   ├── main.py                # FastAPI-App mit CORS
+│   └── requirements.txt       # Python-Dependencies
 │
-├── Frontend/               # Vue.js Frontend
-│   ├── Dockerfile
-│   ├── package.json
-│   ├── package-lock.json
-│   └── src/
-│       ├── App.vue
-│       ├── main.js
-│       ├── components/
-│       ├── router/
-│       ├── store/
-│       └── views/
+├── Frontend/                   # Vue.js 3 Frontend
+│   ├── src/
+│   │   ├── assets/styles/     # CSS-Variablen & Globale Styles
+│   │   ├── components/        # Wiederverwendbare Komponenten
+│   │   ├── router/            # Vue Router
+│   │   ├── services/          # API-Service-Layer (Axios)
+│   │   ├── views/             # Seiten-Komponenten
+│   │   └── App.vue            # Root-Komponente mit Theme-Switch
+│   ├── Dockerfile             # Optimiert für Hot-Reload
+│   └── package.json           # Node-Dependencies
 │
-├── DB/                     # Datenbankordner (z.B. SQLite)
-│
-│
-├── docker-compose.yml      # Orchestrierung der Container
-│
-└── README.md               # Projektbeschreibung
-
----
-
-- Test-Endpunkt `/dbtest` prüft die Datenbankverbindung
-- Start: `main.py`
-- Dockerfile vorhanden
-
-## Frontend
-
-- Routing und Views sind vorbereitet, aber noch minimal
-- Aktuell keine Views/Routen aktiv
-
-## Datenbank
-
-- Die `.gitignore` ist für Python, Node, Datenbank und Planung korrekt eingerichtet.
-
-## Docker & Compose
-- `docker-compose.yml` startet Backend und Frontend
-- Backend: Port 8000
-
-- Ergänze Views und Routen im Frontend
-- Implementiere Models, Controller und Endpunkte im Backend
-- Richte die Datenbankanbindung ein
-- Optional: Hot-Reload für Entwicklung
-- Weitere Dateien/Ordner können bei Bedarf in die `.gitignore` aufgenommen werden
-## Starten des Projekts
-
-1. Docker Desktop starten
-2. Im Hauptordner:
+├── DB/                         # Datenbankordner
+├── docker-compose.yml          # Container-Orchestrierung
+└── README.md
 ```
 
-docker-compose build --no-cache
-docker-compose up
+---
+
+## Wichtige Endpunkte
+
+### Backend
+
+- **GET** `/dbtest` - Datenbankverbindung testen
+- **POST** `/users` - User erstellen (mit Validierung)
+- **GET** `/docs` - Interaktive API-Dokumentation (Swagger UI)
+
+### Frontend
+
+- `/` - Home-Seite mit Backend-Verbindungstest
+
+---
+
+## Theme-Switching
+
+Das Frontend unterstützt Hell- und Dunkelmodus:
+
+- **Light Mode**: Fast-weißer Hintergrund (#FAFAFA), schwarze Schrift
+- **Dark Mode**: Dunkler Hintergrund (#181818), helle Schrift
+- Auswahl wird im LocalStorage gespeichert
+- Theme-Switch-Button oben rechts
+
+**CSS-Variablen** (`Frontend/src/assets/styles/variables.css`):
+
+```css
+.theme-light {
+  --color-bg: #fafafa;
+  --color-text-primary: #111111;
+  --color-text-secondary: #333333;
+  --color-text-tertiary: #555555;
+}
+
+.theme-dark {
+  --color-bg: #181818;
+  --color-text-primary: #fafafa;
+  --color-text-secondary: #cccccc;
+  --color-text-tertiary: #aaaaaa;
+}
+```
+
+---
+
+## Hot-Reload
+
+✅ **Automatisch aktiviert** für beide Services
+
+- **Backend**: Uvicorn mit `--reload` Flag
+- **Frontend**: Vue CLI Dev Server mit Polling
+
+**Änderungen werden sofort sichtbar** - kein Container-Neustart nötig (außer bei Dependency-Änderungen).
+
+---
+
+## API-Integration
+
+Das Frontend nutzt einen zentralisierten API-Service (`src/services/api.js`):
+
+```javascript
+import api from "@/services/api";
+
+// Beispiel: Backend-Verbindung testen
+const response = await api.testDatabase();
+
+// Beispiel: User erstellen
+const user = await api.createUser({
+  username: "testuser",
+  email: "test@example.com",
+  password: "secret123",
+});
+```
+
+Einfach erweiterbar für weitere Endpunkte.
+
+---
+
+## Entwicklung
+
+### Neue Dependencies installieren
+
+**Backend:**
+
+```bash
+# requirements.txt bearbeiten, dann:
+docker-compose down
+docker-compose up --build
+```
+
+**Frontend:**
+
+```bash
+cd Frontend
+npm install <package-name>
+cd ..
+docker-compose down
+docker-compose up --build
+```
+
+### Logs anzeigen
+
+```bash
+docker-compose logs -f          # Alle Services
+docker-compose logs -f backend  # Nur Backend
+docker-compose logs -f frontend # Nur Frontend
+```
+
+---
+
+## Nächste Schritte (Optional)
+
+- **Authentifizierung**: JWT-Token implementieren
+- **Datenbank-Migrationen**: Alembic einrichten
+- **State-Management**: Pinia für komplexere Apps
+- **Testing**: pytest (Backend), Vitest (Frontend)
+- **CI/CD**: GitHub Actions Pipeline
+
+---
+
+## Voraussetzungen
+
+- Docker Desktop
+- Node.js & npm (für lokale Entwicklung)
+- Python 3.11+ (optional, für lokales Backend)
+
+---
+
+## Lizenz
+
+MIT License - Frei verwendbar für eigene Projekte.
 
 ```
-3. Backend erreichbar unter: http://localhost:8000
-4. Frontend erreichbar unter: http://localhost:8080
 
----
-
-## Hinweise
-
-- Im Frontend sind aktuell keine Views/Routen aktiv. Lege z.B. eine Home.vue in `src/views` an und aktiviere die Route in `src/router/index.js`.
-- Das Backend ist bereit für die Erweiterung um Endpunkte, Models und Controller.
-- Die Datenbankanbindung ist vorbereitet, aber noch nicht implementiert.
-
----
-
-## Weiterentwicklung
-
-- Ergänze Views und Routen im Frontend
-- Implementiere Models, Controller und Endpunkte im Backend
-- Richte die Datenbankanbindung ein
-- Optional: Hot-Reload für Entwicklung
-
-## Hot-Reload für Entwicklung
-
-- **Backend:** Uvicorn wird im Docker-Dev-Modus mit `--reload` gestartet. Änderungen am Backend-Code werden automatisch übernommen, wenn du die Container mit Docker Compose startest.
-- **Frontend:** Vue-Dev-Server läuft im Container mit Hot-Reload. Änderungen am Frontend-Code werden direkt im Browser sichtbar.
-- Die Dockerfiles und `docker-compose.yml` sind für Hot-Reload vorbereitet.
-
-## Favicon
-
-- Um die Favicon-Fehlermeldung zu vermeiden, lege eine (auch leere) Datei `Frontend/public/favicon.ico` an. Ein individuelles Favicon kann als `.ico` oder `.svg` abgelegt werden.
-
-## Input-Validierung (Pydantic)
-
-- Im Backend werden Eingaben mit Pydantic validiert. Beispiel: Der Endpunkt `/users` prüft die Felder `username`, `email` und `password` nach definierten Regeln.
-- Die Validierungslogik ist zentral in `Backend/app/models/schemas.py` hinterlegt und kann für weitere Endpunkte genutzt werden.
-- Fehlerhafte Eingaben werden automatisch mit einer verständlichen Fehlermeldung beantwortet.
 ```

@@ -3,8 +3,11 @@ module.exports = {
     host: "0.0.0.0",
     port: 8080,
     allowedHosts: "all",
-    client: {
-      webSocketURL: "ws://localhost:8080/ws",
+    hot: true,
+    watchFiles: {
+      options: {
+        poll: true,
+      },
     },
   },
 };
