@@ -45,37 +45,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-.api-demo {
-    margin-top: 2rem;
-    padding: 1rem;
-    border: 1px solid var(--color-text-secondary);
-    border-radius: 8px;
-}
-
-.api-demo h2 {
-    margin-bottom: 1rem;
-}
-
-.result {
-    margin-top: 1rem;
-    padding: 1rem;
-    background: var(--color-text-tertiary);
-    color: var(--color-bg);
-    border-radius: 4px;
-}
-
-.error {
-    margin-top: 1rem;
-    padding: 1rem;
-    background: #ff4444;
-    color: white;
-    border-radius: 4px;
-}
-
-pre {
-    margin: 0;
-    white-space: pre-wrap;
-}
-</style>

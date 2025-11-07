@@ -24,8 +24,3 @@ function toggleMenu() {
   menuOpen.value = !menuOpen.value;
 }
 </script>
-
-<style scoped>
-/* Alle Burger-Menü Styles sind jetzt in global.css definiert */
-/* Dadurch kann das Theme-System korrekt mit den CSS-Variablen arbeiten */
-</style>

@@ -43,10 +43,14 @@ Production-ready für Entwicklung mit Hot-Reload, CORS, API-Integration und Them
 - ES6+ Syntax
 - Async/await für API-Calls (kein .then())
 - **Clean Code Prinzipien** strikt befolgen
-- **Globale Styles bevorzugen**: Styles in `src/assets/styles/global.css` definieren
+- **🚨 KRITISCH: Styles IMMER global in `src/assets/styles/global.css` definieren! 🚨**
+  - **NIEMALS** `<style scoped>` oder `<style>` Blöcke in Vue-Komponenten verwenden
+  - **ALLE** wiederverwendbaren Styles gehören in die globale CSS-Datei
+  - Komponenten sollen nur Template + Script enthalten, KEINE Styles
+  - Diese Regel hat oberste Priorität und muss von JEDEM LLM befolgt werden!
 - CSS-Variablen aus `variables.css` verwenden
 - Keine Magic Numbers/Strings - Konstanten definieren
-- **Komponenten-CSS nur bei spezifischen Styles** - ansonsten global
+- **Komponenten-CSS ist VERBOTEN** - ausnahmslos alle Styles global
 
 ---
 
@@ -176,8 +180,10 @@ async createNewItem() {
 ❌ Globale Variablen ohne Konstanten  
 ❌ Console.logs in Production-Code  
 ❌ Fehler ignorieren ohne Error-Handling
+❌ **NIEMALS `<style>` Blöcke in Vue-Komponenten - ALLE Styles gehören in global.css!**
 ❌ Komponenten-spezifisches CSS für wiederverwendbare Styles
 ❌ Duplizierte CSS-Regeln statt globaler Definitionen
+❌ **Scoped-Styles in Komponenten - das ist STRENGSTENS VERBOTEN!**
 
 ---
 
@@ -187,6 +193,72 @@ async createNewItem() {
 - Alembic Database-Migrationen
 - Pinia State-Management
 - Pytest & Vitest Testing
+
+---
+
+## README.md Struktur-Vorgaben
+
+**Wichtig: Bei README-Aktualisierung IMMER diese Struktur befolgen!**
+
+### Erforderliche Abschnitte (in dieser Reihenfolge):
+
+1. **Project Overview** (Englisch zuerst)
+
+   - Kurze, prägnante Projektbeschreibung
+   - Technologie-Stack erwähnen (FastAPI, Vue.js 3, Docker)
+   - "Production-ready" und Hauptfeatures hervorheben
+
+2. **Key Features** (Bulletpoints mit • statt -)
+
+   - Backend Features (API, Validierung, CORS, etc.)
+   - Frontend Features (Composition API, Theme, etc.)
+   - Development Environment (Docker, Hot-Reload, etc.)
+
+3. **Architecture** (Grobe Übersicht, KEINE Code-Details)
+
+   - Backend Structure (MVC, Pydantic, etc.)
+   - Frontend Structure (Composition API, Global Styles, etc.)
+
+4. **Quick Start** (Einfache Setup-Schritte)
+
+   - Prerequisites als Bulletpoints
+   - Docker-Commands in Code-Block
+   - URLs für Frontend/Backend/Docs
+
+5. **Technology Stack**
+
+   - Core Technologies
+   - Key Dependencies (nur wichtigste erwähnen)
+
+6. **Current Features** (Was bereits implementiert ist)
+
+   - UI Components
+   - API Integration
+   - Styling System
+
+7. **Development Guidelines** (Grob, ohne Code-Beispiele)
+
+   - Code Organization
+   - Best Practices
+
+8. **Planned Enhancements** (Zukünftige Features)
+
+   - Authentication & Security
+   - Database & Storage
+   - State & Testing
+   - Advanced Features
+
+9. **Deutsche Übersetzung** (Komplette Wiederholung auf Deutsch)
+   - Alle Abschnitte 1-8 auf Deutsch übersetzen
+   - Gleiche Struktur beibehalten
+
+### Styling-Regeln für README:
+
+- **Bulletpoints**: Immer • verwenden, niemals -
+- **Hervorhebungen**: **Fett** für wichtige Begriffe
+- **Keine Code-Beispiele**: Nur grobe Beschreibungen
+- **Ausdrücklich**: Aussagekräftige, aber kurze Bulletpoints
+- **Zweisprachig**: Englisch zuerst, dann komplette deutsche Version
 
 ---
 
