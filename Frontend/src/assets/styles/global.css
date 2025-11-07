@@ -35,17 +35,13 @@ button:hover {
 
 /* Burger-Menü Styles */
 .burger-btn {
-  position: fixed !important;
-  top: 16px !important;
-  left: 16px !important;
-  font-size: 2rem !important;
   background: transparent !important;
   border: 1px solid var(--color-text-secondary) !important;
   color: var(--color-text-primary) !important;
   cursor: pointer !important;
-  z-index: 9999 !important;
-  padding: 4px 8px !important;
+  padding: 6px 12px !important;
   border-radius: 4px !important;
+  font-size: 1rem !important;
 }
 
 .burger-btn:hover {
@@ -119,7 +115,10 @@ button:hover {
   align-items: center;
   justify-content: space-between;
   padding: 0 12px;
-  background: transparent;
+  background: rgba(0,0,0,0.08); /* leicht transparent, passt zu beiden Themes */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07); /* sanfter Schatten */
+  border-bottom: 1px solid var(--color-text-secondary); /* feine Linie unten */
+  backdrop-filter: blur(2px); /* optional: leichter Blur-Effekt */
   z-index: 2000;
   pointer-events: none;
 }
