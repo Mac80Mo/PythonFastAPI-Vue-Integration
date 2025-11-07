@@ -42,9 +42,11 @@ Production-ready für Entwicklung mit Hot-Reload, CORS, API-Integration und Them
 
 - ES6+ Syntax
 - Async/await für API-Calls (kein .then())
-- Scoped CSS in Components
+- **Clean Code Prinzipien** strikt befolgen
+- **Globale Styles bevorzugen**: Styles in `src/assets/styles/global.css` definieren
 - CSS-Variablen aus `variables.css` verwenden
 - Keine Magic Numbers/Strings - Konstanten definieren
+- **Komponenten-CSS nur bei spezifischen Styles** - ansonsten global
 
 ---
 
@@ -74,16 +76,20 @@ Frontend/src/
 ## Docker & Development
 
 - **Hot-Reload ist aktiviert** - kein Container-Neustart bei Code-Änderungen
+- **Vue-Komponenten (.vue)**: Hot-Reload funktioniert zuverlässig
+- **Globale CSS-Änderungen**: Manchmal Container-Restart nötig (`docker-compose restart frontend`)
 - **Bei neuen Dependencies**:
   - Backend: `requirements.txt` bearbeiten → `docker-compose up --build`
   - Frontend: `package.json` bearbeiten → lokal `npm install` → `docker-compose up --build`
 - **Volume-Mounts** sorgen für Live-Updates
+- **Optimierte vue.config.js**: Polling aktiviert für Docker-Kompatibilität
 
 ---
 
-## Theme-System
+## Theme-System & Globale Styles
 
 - **CSS-Variablen verwenden** statt hardcodierte Farben
+- **Globale Styles**: Alle wiederverwendbaren Styles in `src/assets/styles/global.css`
 - **Verfügbare Variablen**:
   - `--color-bg`: Hintergrund
   - `--color-text-primary`: Hauptschrift (H1)
@@ -91,6 +97,7 @@ Frontend/src/
   - `--color-text-tertiary`: Fließtext
 - **Theme-Klassen**: `.theme-light` und `.theme-dark`
 - **LocalStorage**: Theme-Präferenz wird gespeichert
+- **Navbar & Layout**: Globale UI-Komponenten (Burger-Menü, Theme-Toggle) in `global.css`
 
 ---
 
@@ -169,6 +176,8 @@ async createNewItem() {
 ❌ Globale Variablen ohne Konstanten  
 ❌ Console.logs in Production-Code  
 ❌ Fehler ignorieren ohne Error-Handling
+❌ Komponenten-spezifisches CSS für wiederverwendbare Styles
+❌ Duplizierte CSS-Regeln statt globaler Definitionen
 
 ---
 

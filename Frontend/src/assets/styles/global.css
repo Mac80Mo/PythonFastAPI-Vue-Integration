@@ -3,6 +3,7 @@ body {
   color: var(--color-text-tertiary);
   transition: background 0.3s, color 0.3s;
   font-family: Arial, sans-serif;
+  padding-top: 70px; /* Navbar-Höhe (56px) + Abstand (14px) = 70px */
 }
 
 h1 {
@@ -28,6 +29,114 @@ button {
 }
 
 button:hover {
+  background: var(--color-text-secondary);
+  color: var(--color-bg);
+}
+
+/* Burger-Menü Styles */
+.burger-btn {
+  position: fixed !important;
+  top: 16px !important;
+  left: 16px !important;
+  font-size: 2rem !important;
+  background: transparent !important;
+  border: 1px solid var(--color-text-secondary) !important;
+  color: var(--color-text-primary) !important;
+  cursor: pointer !important;
+  z-index: 9999 !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+}
+
+.burger-btn:hover {
+  background: var(--color-text-secondary) !important;
+  color: var(--color-bg) !important;
+}
+
+.burger-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background: var(--color-bg);
+  border-right: 2px solid var(--color-text-secondary);
+  box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+  z-index: 9998;
+  padding: 60px 20px 20px 20px;
+}
+
+.burger-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.burger-sidebar li {
+  margin-bottom: 15px;
+}
+
+.burger-sidebar a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: block;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-text-secondary);
+  transition: color 0.3s;
+}
+
+.burger-sidebar a:hover {
+  color: var(--color-text-secondary);
+}
+
+.burger-close-btn {
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  font-size: 1.5rem !important;
+  background: transparent !important;
+  border: none !important;
+  color: var(--color-text-primary) !important;
+  cursor: pointer !important;
+  padding: 4px 8px !important;
+  z-index: 9999 !important;
+}
+
+.burger-close-btn:hover {
+  background: var(--color-text-secondary) !important;
+  color: var(--color-bg) !important;
+}
+
+/* Navbar (transparent) */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  background: transparent;
+  z-index: 2000;
+  pointer-events: none;
+}
+.navbar-left, .navbar-right {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+}
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--color-text-secondary);
+  color: var(--color-text-primary);
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.theme-toggle:hover {
   background: var(--color-text-secondary);
   color: var(--color-bg);
 }
