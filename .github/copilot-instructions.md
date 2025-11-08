@@ -51,6 +51,15 @@ Production-ready für Entwicklung mit Hot-Reload, CORS, API-Integration und Them
 - CSS-Variablen aus `variables.css` verwenden
 - Keine Magic Numbers/Strings - Konstanten definieren
 - **Komponenten-CSS ist VERBOTEN** - ausnahmslos alle Styles global
+- **Typografie-Regeln für globale Styles:**
+  - Headings (h1–h6) nach Major Third Scale (1.25) skalieren
+  - Basisgröße für Fließtext: 1rem (16px)
+  - Alle Schriftgrößen ausschließlich in rem
+  - Letter-Spacing und Line-Height nach Typografie-Vorgaben:
+    • Headings: abgestuft negativ, Body: 0–0.01em
+    • Headings: Line-Height 1.1–1.3, Body: 1.5
+  - Typografische Hierarchie und Lesbarkeit sind Pflicht
+  - Diese Regeln sind verbindlich für alle globalen Styles
 
 ---
 

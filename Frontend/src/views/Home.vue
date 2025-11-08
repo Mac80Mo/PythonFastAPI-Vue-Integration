@@ -1,6 +1,7 @@
 <template>
     <div>
         <h1>Hello World!</h1>
+        <p>A production-ready fullstack starter using FastAPI (backend) and Vue.js 3 (frontend) in Docker. Features hot-reload, robust API integration, global theme system, and clean code architecture for rapid development.</p>
         
         <div class="api-demo">
             <h2>API-Integration Demo</h2>

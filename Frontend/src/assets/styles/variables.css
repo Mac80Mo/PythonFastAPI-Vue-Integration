@@ -1,3 +1,10 @@
+.theme-light {
+  --color-navbar-bg: rgba(255,255,255,0.9);
+}
+
+.theme-dark {
+  --color-navbar-bg: rgba(24,24,24,0.9);
+}
 .theme-dark {
   --color-bg: #181818;              
   --color-text-primary: #FFFFFF;    
