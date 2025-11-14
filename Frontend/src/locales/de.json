@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "contact": "Kontakt"
+  },
+  "home": {
+    "title": "Hallo Welt!",
+    "description": "Ein production-ready Fullstack-Starter mit FastAPI (Backend) und Vue.js 3 (Frontend) in Docker. Features Hot-Reload, robuste API-Integration, globales Theme-System und saubere Architektur für schnelle Entwicklung. Unterstützt Mehrsprachigkeit (Deutsch/Englisch).",
+    "apiDemo": "API-Integration Demo",
+    "testButton": "Backend-Verbindung testen",
+    "dbTables": "Datenbank-Tabellen:",
+    "error": "Fehler:",
+    "errorMessage": "Verbindung zum Backend fehlgeschlagen"
+  },
+  "theme": {
+    "toggle": "Theme wechseln"
+  },
+  "language": {
+    "toggle": "Sprache wechseln"
+  }
+}

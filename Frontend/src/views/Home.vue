@@ -1,48 +1,43 @@
 <template>
     <div>
-        <h1>Hello World!</h1>
-        <p>A production-ready fullstack starter using FastAPI (backend) and Vue.js 3 (frontend) in Docker. Features hot-reload, robust API integration, global theme system, and clean code architecture for rapid development.</p>
-        
+        <h1>{{ t('home.title') }}</h1>
+        <p>{{ t('home.description') }}</p>
+
         <div class="api-demo">
-            <h2>API-Integration Demo</h2>
-            
-            <button @click="testBackendConnection">Backend-Verbindung testen</button>
-            
+            <h2>{{ t('home.apiDemo') }}</h2>
+
+            <button @click="testBackendConnection">{{ t('home.testButton') }}</button>
+
             <div v-if="dbTestResult" class="result">
-                <h3>Datenbank-Tabellen:</h3>
+                <h3>{{ t('home.dbTables') }}</h3>
                 <pre>{{ dbTestResult }}</pre>
             </div>
-            
+
             <div v-if="error" class="error">
-                <h3>Fehler:</h3>
+                <h3>{{ t('home.error') }}</h3>
                 <p>{{ error }}</p>
             </div>
         </div>
     </div>
 </template>
 
-<script>
-import api from '@/services/api';
+<script setup>
+import { ref } from 'vue'
+import { useLocale } from '@/composables/useLocale'
+import api from '@/services/api'
 
-export default {
-    name: "Home",
-    data() {
-        return {
-            dbTestResult: null,
-            error: null
-        }
-    },
-    methods: {
-        async testBackendConnection() {
-            try {
-                this.error = null;
-                const response = await api.testDatabase();
-                this.dbTestResult = response.data;
-            } catch (err) {
-                this.error = err.message || 'Verbindung zum Backend fehlgeschlagen';
-                console.error('API-Fehler:', err);
-            }
-        }
+const { t } = useLocale()
+const dbTestResult = ref(null)
+const error = ref(null)
+
+async function testBackendConnection() {
+    try {
+        error.value = null
+        const response = await api.testDatabase()
+        dbTestResult.value = response.data
+    } catch (err) {
+        error.value = t('home.errorMessage')
+        console.error('API-Fehler:', err)
     }
 }
 </script>

@@ -1,12 +1,8 @@
 # PythonFastAPI-Vue-Integration
 
-## Project Overview
-
-Modern fullstack boilerplate combining **FastAPI** backend with **Vue.js 3** frontend, containerized with **Docker**. Production-ready development environment featuring hot-reload, CORS configuration, centralized API integration, and professional theme system.
-
 ---
 
-## Key Features
+## Schnellstart
 
 ### Backend (FastAPI)
 
@@ -130,6 +126,13 @@ API Documentation: http://localhost:8000/docs
 
 ---
 
+## Internationalization
+
+• **Supported languages**: English and German. The UI offers a language toggle in the navbar and stores the selection in `localStorage`. Translations live in `Frontend/src/locales/*.json` and are available to components via the composable `src/composables/useLocale.js`.
+• **Seed (optional)**: Use `Frontend/scripts/translate-locales.js` to seed translations using DeepL (API key required). Machine translations should be reviewed before production use.
+
+---
+
 ## Development Guidelines
 
 ### Code Organization
@@ -211,6 +214,12 @@ Modernes Fullstack-Grundgerüst mit **FastAPI** Backend und **Vue.js 3** Fronten
 • Strukturierte Projektorganisation
 
 ---
+
+## Internationalisierung
+
+• **Unterstützte Sprachen**: Deutsch und Englisch. Die Sprache kann über den Toggle in der Navbar gewechselt werden; die Auswahl wird in `localStorage` gespeichert. Übersetzungen befinden sich in `Frontend/src/locales/*.json` und sind über das Composable `src/composables/useLocale.js` in Komponenten verfügbar.
+
+• **Schnellstart (optional)**: `Frontend/scripts/translate-locales.js` kann verwendet werden, um Übersetzungen per DeepL (API-Key erforderlich) als Seed zu erzeugen — bitte maschinelle Übersetzungen vor Produktivsetzung prüfen.
 
 ## Schnellstart
 

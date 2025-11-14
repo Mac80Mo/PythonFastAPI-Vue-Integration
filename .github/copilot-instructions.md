@@ -272,3 +272,9 @@ async createNewItem() {
 ---
 
 **Bei Unsicherheiten**: Folge der bestehenden Struktur und Best Practices!
+
+---
+
+## Hinweis: Mehrsprachigkeit bei Text-Generierung
+
+- Wenn ein Prompt Texte oder Dokumente anfordert, prüfe die gewünschte Sprache; liefere Inhalte in der angegebenen Sprache. Falls keine Sprache genannt ist, biete standardmäßig beide Versionen (EN/DE) oder frage kurz nach. Die entsprechenden Dateien liegen diesbezüglich im Frontend Ordner: locales/ de.json & en.json.

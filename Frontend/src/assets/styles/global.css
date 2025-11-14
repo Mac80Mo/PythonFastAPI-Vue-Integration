@@ -213,6 +213,22 @@ button:hover {
   color: var(--color-bg);
 }
 
+/* Language toggle sollte optisch zum Theme-Toggle passen */
+.language-toggle {
+  background: transparent;
+  border: 1px solid var(--color-text-secondary);
+  color: var(--color-text-primary);
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  font-size: 0.95rem;
+}
+.language-toggle:hover {
+  background: var(--color-text-secondary);
+  color: var(--color-bg);
+}
+
 /* API Demo Styles */
 .api-demo {
     margin-top: 2rem;
