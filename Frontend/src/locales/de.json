@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Startseite",
-    "about": "Über uns",
+    "about": "Über mich",
     "contact": "Kontakt"
   },
   "home": {
@@ -18,5 +18,8 @@
   },
   "language": {
     "toggle": "Sprache wechseln"
+  }
+  ,"footer":{
+    "impressum":"Impressum"
   }
 }

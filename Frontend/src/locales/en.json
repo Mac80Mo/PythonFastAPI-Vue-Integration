@@ -19,4 +19,7 @@
   "language": {
     "toggle": "Toggle Language"
   }
+  ,"footer":{
+    "impressum":"Imprint"
+  }
 }

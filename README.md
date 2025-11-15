@@ -49,6 +49,19 @@
 • **Theme System**: CSS variables with localStorage persistence  
 • **Component Architecture**: Reusable UI components  
 • **API Service**: Centralized backend communication
+• **Footer Component**: `Frontend/src/components/Footer.vue` — theme-aware sticky footer, localized via `src/locales/*`.
+
+### Project Structure (compact)
+
+• `Backend/`
+
+- `app/` (controllers, models, views)
+- `main.py`, `requirements.txt`, `Dockerfile`  
+  • `Frontend/`
+- `src/` (components/, assets/styles/, locales/, services/, router/)
+- `package.json`, `vue.config.js`, `Dockerfile`  
+  • `DB/` (SQLite database file)  
+  • `planung/` (design/diagrams)
 
 ---
 
@@ -109,6 +122,7 @@ API Documentation: http://localhost:8000/docs
 • **Hamburger Menu**: Mobile-friendly navigation sidebar  
 • **Theme Toggle**: Light/dark mode with localStorage persistence  
 • **API Demo**: Backend connectivity testing interface
+• **Footer**: Theme-aware sticky footer with localized "Impressum" link (component: `Frontend/src/components/Footer.vue`)
 
 ### API Integration
 
@@ -344,31 +358,6 @@ API Dokumentation: http://localhost:8000/docs
 ## License
 
 MIT License - Free to use for personal projects.
-return { theme, toggleTheme };
-}
-
-// Verwendung in Komponenten
-import { useTheme } from "@/composables/useTheme";
-const { theme, toggleTheme } = useTheme();
-
-````
-
-### **API-Integration**
-
-Zentralisierter API-Service (`src/services/api.js`):
-
-```javascript
-import api from "@/services/api";
-
-// Backend-Verbindung testen
-const response = await api.testDatabase();
-
-// User erstellen
-const user = await api.createUser({
-  username: "testuser",
-  email: "test@example.com",
-});
-````
 
 ### **Globales CSS-System**
 

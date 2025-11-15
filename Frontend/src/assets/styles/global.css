@@ -25,6 +25,7 @@ body {
   line-height: 1.5;
   letter-spacing: 0.01em;
   padding-top: 70px; /* Navbar-Höhe (56px) + Abstand (14px) = 70px */
+  padding-bottom: 56px; /* Footer-Höhe (48px) + Puffer = 56px */
 }
 
 h1 {
@@ -260,4 +261,43 @@ button:hover {
 pre {
     margin: 0;
     white-space: pre-wrap;
+}
+
+/* Footer (mirrors Navbar styling, theme-aware via CSS-Variablen) */
+.app-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-navbar-bg);
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.07);
+  border-top: 1px solid var(--color-text-secondary);
+  backdrop-filter: blur(2px);
+  z-index: 2000;
+  pointer-events: none;
+}
+.app-footer .footer-inner {
+  pointer-events: auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 0 12px;
+}
+.footer-copy {
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+}
+.footer-link {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  border-bottom: none;
+  font-size: 0.95rem;
+}
+.footer-link:hover {
+  color: var(--color-text-secondary);
+  text-decoration: underline;
 }
