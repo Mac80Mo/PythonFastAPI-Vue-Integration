@@ -8,12 +8,26 @@ A production-ready fullstack starter using FastAPI (backend) and Vue.js 3 (front
 
 - **English**
 
-  - [Security: XSS scan (local pre-push & CI)](#security-xss-scan-local-pre-push--ci)
-  - [Development Guidelines](#development-guidelines)
+  - [Key Features](#key-features): Concise overview of backend and frontend capabilities.
+  - [Frontend Features](#frontend-features): Vue 3, theme system, i18n, and global CSS conventions.
+  - [Quick Start](#quick-start): How to run the development environment with Docker and where to access services.
+  - [Internationalization](#internationalization): Locale system, translation files and tooling for seeding translations.
+  - [Security: XSS scan (local pre-push & CI)](#security-xss-scan-local-pre-push--ci): Description of the automated scanner, Husky pre-push hook, and CI checks.
+  - [Development Guidelines](#development-guidelines): Coding standards, structure rules and global-style policy.
+  - [Architecture](#architecture): How backend and frontend are organized (MVC, composables, service layer).
+  - [Technology Stack](#technology-stack): Core frameworks, runtimes and container setup.
+  - [Current Features](#current-features): Implemented API endpoints, UI components and integration details.
 
 - **Deutsch**
-  - [Sicherheit: XSS-Scan (lokal pre-push & CI)](#sicherheit-xss-scan-lokal-pre-push--ci)
-  - [Entwicklungsrichtlinien](#entwicklungsrichtlinien)
+
+  - [Projektübersicht (Deutsch)](#projektübersicht-deutsch): Kurze Projektbeschreibung und Zielsetzung auf Deutsch.
+  - [Hauptfunktionen](#hauptfunktionen): Backend- und Frontend-Funktionen, Validierung und Hot-Reload.
+  - [Schnellstart](#schnellstart): Lokale Startanleitung (Docker-Befehle, URLs und Entwicklungs-Workflow).
+  - [Internationalisierung](#internationalisierung): Lokalisierungsdateien, Composable und Übersetzungs-Workflow.
+  - [Sicherheit: XSS-Scan (lokal pre-push & CI)](#sicherheit-xss-scan-lokal-pre-push--ci): Scanner, CI-Job und Hinweise zur Vermeidung von DOM-basiertem XSS.
+  - [Entwicklungsrichtlinien](#entwicklungsrichtlinien): Projektkonventionen, No-Scoped-CSS-Regel und Typografie-Vorgaben.
+  - [Technologie-Stack](#technology-stack): Die in diesem Projekt genutzten Kerntechnologien (Kurzfassung).
+  - [Aktuelle Features](#current-features): Übersicht über vorhandene Endpunkte, UI-Komponenten und Integrationspunkte.
 
 ---
 
