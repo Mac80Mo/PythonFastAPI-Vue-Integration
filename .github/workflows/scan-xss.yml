@@ -1,0 +1,32 @@
+name: XSS Sink Scan
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  scan-xss:
+    name: Scan repository for DOM XSS sinks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Run XSS sink scan
+        run: |
+          echo "Running XSS sink scanner..."
+          node Frontend/scripts/scan-xss-sinks.js
+          echo "Checking report for findings..."
+          node -e "const r=require('./Frontend/scripts/scan-xss-report.json'); console.log('Findings:', (r.results||[]).length); if((r.results||[]).length>0){console.error('XSS sink patterns found. See Frontend/scripts/scan-xss-report.json'); process.exit(1)}"
+
+      - name: Upload scan report
+        uses: actions/upload-artifact@v4
+        with:
+          name: xss-scan-report
+          path: Frontend/scripts/scan-xss-report.json

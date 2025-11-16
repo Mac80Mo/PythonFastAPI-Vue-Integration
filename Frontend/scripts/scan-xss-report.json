@@ -1,0 +1,71 @@
+{
+  "scannedAt": "2025-11-16T00:53:51.817Z",
+  "repoRoot": "C:\\Marcus\\GitHubProjekte\\PythonFastAPI-Vue-Integration",
+  "results": [
+    {
+      "path": "Frontend\\src\\components\\BurgerMenu.vue",
+      "findings": [
+        {
+          "pattern": "template-interpolation",
+          "line": 9,
+          "snippet": "<li><router-link @click.native=\"toggleMenu\" to=\"/\">{{ t('nav.home') }}</router-link></li>"
+        },
+        {
+          "pattern": "template-interpolation",
+          "line": 10,
+          "snippet": "<li><router-link @click.native=\"toggleMenu\" to=\"/about\">{{ t('nav.about') }}</router-link></li>"
+        },
+        {
+          "pattern": "template-interpolation",
+          "line": 11,
+          "snippet": "<li><router-link @click.native=\"toggleMenu\" to=\"/contact\">{{ t('nav.contact') }}</router-link></li>"
+        }
+      ]
+    },
+    {
+      "path": "Frontend\\src\\components\\Footer.vue",
+      "findings": [
+        {
+          "pattern": "template-interpolation",
+          "line": 5,
+          "snippet": "<a class=\"footer-link\" :href=\"imprintHref\">{{ t('footer.impressum') }}</a>"
+        }
+      ]
+    },
+    {
+      "path": "Frontend\\src\\views\\Home.vue",
+      "findings": [
+        {
+          "pattern": "template-interpolation",
+          "line": 3,
+          "snippet": "<h1>{{ t('home.title') }}</h1>"
+        },
+        {
+          "pattern": "template-interpolation",
+          "line": 4,
+          "snippet": "<p>{{ t('home.description') }}</p>"
+        },
+        {
+          "pattern": "template-interpolation",
+          "line": 7,
+          "snippet": "<h2>{{ t('home.apiDemo') }}</h2>"
+        },
+        {
+          "pattern": "template-interpolation",
+          "line": 9,
+          "snippet": "<button @click=\"testBackendConnection\">{{ t('home.testButton') }}</button>"
+        },
+        {
+          "pattern": "template-interpolation",
+          "line": 12,
+          "snippet": "<h3>{{ t('home.dbTables') }}</h3>"
+        },
+        {
+          "pattern": "template-interpolation",
+          "line": 17,
+          "snippet": "<h3>{{ t('home.error') }}</h3>"
+        }
+      ]
+    }
+  ]
+}

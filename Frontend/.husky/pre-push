@@ -1,0 +1,11 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Running XSS sink scan before push..."
+node ./scripts/scan-xss-sinks.js
+RESULT=$?
+if [ $RESULT -ne 0 ]; then
+  echo "XSS sink scan detected issues. Aborting push. See Frontend/scripts/scan-xss-report.json"
+  exit $RESULT
+fi
+echo "XSS scan passed. Continuing push."

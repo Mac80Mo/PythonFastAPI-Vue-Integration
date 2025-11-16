@@ -2,6 +2,19 @@
 
 A production-ready fullstack starter using FastAPI (backend) and Vue.js 3 (frontend) in Docker. Features hot-reload, robust API integration, multilingual support, global theme system, and clean MVC architecture for rapid development.
 
+<!-- Quick bilingual index -->
+
+## Index / Inhaltsverzeichnis
+
+- **English**
+
+  - [Security: XSS scan (local pre-push & CI)](#security-xss-scan-local-pre-push--ci)
+  - [Development Guidelines](#development-guidelines)
+
+- **Deutsch**
+  - [Sicherheit: XSS-Scan (lokal pre-push & CI)](#sicherheit-xss-scan-lokal-pre-push--ci)
+  - [Entwicklungsrichtlinien](#entwicklungsrichtlinien)
+
 ---
 
 ## Key Features
@@ -128,6 +141,41 @@ docker-compose up -d --build
 ---
 
 ## Development Guidelines
+
+### Security: XSS scan (local pre-push & CI)
+
+• **Purpose**: Automated checks scan the frontend sources for common DOM-based XSS sinks (for example `v-html`, `innerHTML`, `document.write`) and HTML-like content in translation files. The goal is to detect risky patterns early and prevent unsafe changes from being merged.
+
+• **Local pre-push hook (Husky)**
+
+- The repository contains a committable Husky pre-push hook at `Frontend/.husky/pre-push` that runs `node Frontend/scripts/scan-xss-sinks.js` before a local `git push`.
+- To enable it locally, run:
+
+```powershell
+cd Frontend
+npm install
+```
+
+- After `npm install` Husky's `prepare` script installs the hooks. A failing scan aborts the push.
+
+• **CI scan (GitHub Actions)**
+
+- A GitHub Action (`.github/workflows/scan-xss.yml`) runs the same scanner on pushes to `main` and `master` and uploads a JSON report artifact named `xss-scan-report`.
+- The CI job fails if any high-risk findings are detected; inspect the Actions logs and the uploaded artifact for details.
+
+• **Manual run**
+
+```powershell
+node Frontend\scripts\scan-xss-sinks.js
+Get-Content Frontend\scripts\scan-xss-report.json | Out-String
+```
+
+- The generated report is `Frontend/scripts/scan-xss-report.json`.
+
+• **Notes & recommendations**
+
+- The scanner examines `Frontend/src/**` by default to avoid noise from lockfiles and dependency manifests.
+- If a finding is reported, review the report and fix the underlying issue (for example: avoid `v-html` with untrusted content; sanitize inputs if HTML is required).
 
 ### Code Organization
 
@@ -305,6 +353,41 @@ docker-compose up -d --build
 
 ## Entwicklungsrichtlinien
 
+### Sicherheit: XSS-Scan (lokal pre-push & CI)
+
+• **Zweck**: Automatisierte Prüfungen durchsuchen die Frontend-Quellen nach typischen DOM-basierten XSS-Senken (z. B. `v-html`, `innerHTML`, `document.write`) und HTML-ähnlichen Inhalten in Übersetzungsdateien. Ziel ist es, riskante Patterns früh zu erkennen und Pushes/Merges zu verhindern, wenn ein Problem besteht.
+
+• **Lokaler pre-push-Hook (Husky)**:
+
+    - Im Repo liegt ein committbarer Husky pre-push-Hook unter `Frontend/.husky/pre-push`, der vor jedem lokalen `git push` das Script `node Frontend/scripts/scan-xss-sinks.js` ausführt.
+
+    - Aktivierung lokal (im `Frontend`-Ordner):
+
+```powershell
+cd Frontend
+npm install
+```
+
+    - Nach `npm install` installiert das `prepare`-Script von Husky die Hooks automatisch. Schlägt der Scan fehl, wird der Push abgebrochen.
+
+• **CI-Scan (GitHub Actions)**:
+
+    - Eine GitHub Action (`.github/workflows/scan-xss.yml`) führt denselben Scanner bei Pushes auf `main` und `master` aus und lädt einen JSON-Report als Artefakt `xss-scan-report` hoch.
+
+    - Der CI-Job schlägt fehl, wenn High-Risk-Treffer gefunden werden; prüfe das Actions-Tab und das Artefakt für Details.
+
+• **Manueller Lauf**:
+
+```powershell
+node Frontend\scripts\scan-xss-sinks.js
+Get-Content Frontend\scripts\scan-xss-report.json | Out-String
+```
+
+• **Hinweise & Empfehlungen**:
+
+    - Der Scanner prüft standardmäßig nur `Frontend/src/**`, um False-Positives aus Lockfiles zu vermeiden.
+    - Wenn ein Fund gerechtfertigt ist, überprüfe den Report und behebe das Problem (z. B. `v-html` vermeiden; Inhalte sanitieren, falls HTML benötigt wird).
+
 ### Code-Organisation
 
 • **Backend**: Striktes MVC-Pattern mit Pydantic-Schemas in models/
@@ -394,24 +477,6 @@ docker-compose up -d --build
 
 • **Supported languages**: English and German. The UI offers a language toggle in the navbar and stores the selection in `localStorage`. Translations live in `Frontend/src/locales/*.json` and are available to components via the composable `src/composables/useLocale.js`.
 • **Seed (optional)**: Use `Frontend/scripts/translate-locales.js` to seed translations using DeepL (API key required). Machine translations should be reviewed before production use.
-
----
-
-## Development Guidelines
-
-### Code Organization
-
-• **Backend**: Follow MVC pattern strictly  
-• **Frontend**: Use Composition API exclusively  
-• **Styles**: Global CSS only, no component styles  
-• **API**: Centralized service pattern
-
-### Best Practices
-
-• **Type Safety**: Python type hints, Pydantic schemas  
-• **Error Handling**: Comprehensive try-catch blocks  
-• **Clean Code**: No magic numbers, clear naming  
-• **Hot-Reload**: Optimized for Docker development
 
 ---
 
@@ -556,24 +621,6 @@ API Dokumentation: http://localhost:8000/docs
 • **Globale Styles**: Zentralisiertes Style-Management  
 • **Responsive Design**: Mobile-First-Ansatz  
 • **Clean Code**: Keine komponentenspezifischen CSS-Blöcke
-
----
-
-## Entwicklungsrichtlinien
-
-### Code-Organisation
-
-• **Backend**: MVC-Pattern strikt befolgen  
-• **Frontend**: Ausschließlich Composition API verwenden  
-• **Styles**: Nur globale CSS, keine Komponenten-Styles  
-• **API**: Zentralisiertes Service-Pattern
-
-### Best Practices
-
-• **Typsicherheit**: Python Type-Hints, Pydantic-Schemas  
-• **Error-Handling**: Umfassende Try-Catch-Blöcke  
-• **Clean Code**: Keine Magic Numbers, klare Benennung  
-• **Hot-Reload**: Optimiert für Docker-Entwicklung
 
 ---
 
