@@ -1,6 +1,9 @@
 services:
   backend:
-    build: ./Backend
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    container_name: fastapi-backend-dev
     volumes:
       - ./Backend:/app
       - ./DB:/app/DB
@@ -8,12 +11,30 @@ services:
       - "8000:8000"
     environment:
       - DB_PATH=/app/DB/projekt1.sqbpro
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    networks:
+      - app-network
+
   frontend:
-    build: ./Frontend
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    container_name: vue-frontend-dev
     volumes:
       - ./Frontend:/app
       - /app/node_modules
     ports:
       - "8080:8080"
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
     depends_on:
       - backend
+    restart: unless-stopped
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
